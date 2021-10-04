@@ -1,0 +1,303 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Fisikako Gradu Amaierako Lana: Prozesu estokastikoak fisikan eta ekonomian &#8212; Playing with Geopandas</title>
+    
+  <link href="_static/css/theme.css" rel="stylesheet" />
+  <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/language_data.js"></script>
+    <script type="text/javascript" src="_static/togglebutton.js"></script>
+    <script type="text/javascript" src="_static/clipboard.min.js"></script>
+    <script type="text/javascript" src="_static/copybutton.js"></script>
+    <script type="text/javascript">var togglebuttonSelector = '.toggle, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script type="text/javascript" src="_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <script async="async" type="text/javascript" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script type="text/javascript">
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Playing with interactive maps" href="Inter_IPCC.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="index.html">
+      
+      <img src="_static/logi.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Playing with Geopandas</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1 current">
+  <a class="reference internal" href="#">
+   Fisikako Gradu Amaierako Lana: Prozesu estokastikoak fisikan eta ekonomian
+  </a>
+ </li>
+</ul>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Inter_IPCC.html">
+   Playing with interactive maps
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="Fuel_1914.html">
+   1. Introduction
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="_sources/intro1.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#edukia">
+   Edukia
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#higidura-browndarra">
+     Higidura browndarra
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jito-indarpeko-higidura-browndarra">
+     Jito-indarpeko higidura browndarra
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#merkatu-ereduak">
+     Merkatu-ereduak
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#irakurlearentzako-oharrak">
+   Irakurlearentzako oharrak
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="fisikako-gradu-amaierako-lana-prozesu-estokastikoak-fisikan-eta-ekonomian">
+<h1>Fisikako Gradu Amaierako Lana: Prozesu estokastikoak fisikan eta ekonomian<a class="headerlink" href="#fisikako-gradu-amaierako-lana-prozesu-estokastikoak-fisikan-eta-ekonomian" title="Permalink to this headline">¶</a></h1>
+<p>Orrialde honetan, Fisikako GRALerako garatutako kode guztia aurkitu daiteke.</p>
+<div class="section" id="edukia">
+<h2>Edukia<a class="headerlink" href="#edukia" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="higidura-browndarra">
+<h3>Higidura browndarra<a class="headerlink" href="#higidura-browndarra" title="Permalink to this headline">¶</a></h3>
+<p>Lehenengo atalean, independenteak diren partikula browndarren multzo bat eraikitzen da. Kasu sinpleenetik hasten gara, 2D eta 3Dko simulazio estatikoak irudikatuz. Kodea ondo idatzita dagoen ziurtatzeko, partikula-multzoak, esperimentalki, emaitza teoriko jakin batzuk betetzen dituen aztertuko dugu.</p>
+<p>Simulazioa ondo burutu dela ziurtatzean, eraiki den kasu ideal horri zenbait propietate gehituko zaizkio:</p>
+<ol class="simple">
+<li><p>Partikula ez-independenteak simulatuko dira. Beraien arteko elkarrekintza simulatzeko, Lennard-Jones-en potentziala sartu da.</p></li>
+<li><p>Horrez gain, hasieratze-funtzio bat ere gehitu da (ordutik aurrera bi partikulek ezin izango dute bolumen bera okupatu).</p></li>
+<li><p>Azkenik, mugalde baldintza periodikoak ere ezarri dira (fisikako hainbat ikasgaitan orokortasunik galdu gabe egin dugun bezala).</p></li>
+</ol>
+</div>
+<div class="section" id="jito-indarpeko-higidura-browndarra">
+<h3>Jito-indarpeko higidura browndarra<a class="headerlink" href="#jito-indarpeko-higidura-browndarra" title="Permalink to this headline">¶</a></h3>
+<p>Oraingoan, partikula browndak dauden jariakinari jito-indar bat gehitu zaio. Izan ere, errealitatean behatzen diren eta browndartzat har daitezkeen partikulek, oro har, jito-indar bat jasan dezakete (eta hortaz, zilegi da Langevin-en ekuazioetan jito-indarra ereduztatuko duen indar bat gehitzea). Behin ere, kodea ondo dagoen frogatzeko, difusio-konstantea eta Einstein-en erlazioa kalkulatzen dira.</p>
+</div>
+<div class="section" id="merkatu-ereduak">
+<h3>Merkatu-ereduak<a class="headerlink" href="#merkatu-ereduak" title="Permalink to this headline">¶</a></h3>
+<p>Atal honetan, eta Yamada <em>et al.</em> -en artikuluari jarraituz, prozesu estokastikoetan oinarritutako bi merkatu-eredu eraikiko dira. Merkatu-eredu sinpleenari A Eredua deituko zaio eta hemen <em>partaide</em> estokastikoaren ideia aurkeztuko da. Partaide hori, merkatuan parte hartzen duen edozein negoziatzaile izan daiteke: enpresa bat, banakako merkataria, negoziatzailea, gobernua, familia edo banku zentrala. Eta <em>estokastiko</em> deritzo, esparru estokastiko bat erabiliz, modu baliokide batean modelizatu daitekeelako eragile ekonomiko horietako bakoitzak ekonomian duen esku-hartzea. Hortaz, merkatu-eredua osatzen duten osagai guztiak  <em>partaide estokastikoak</em> izango dira, eta hauen arteko elkarrekintza aztertuko da.</p>
+<p>Ondoren, ikusiko da, A Eredua ez dela merkatu errealetan behatzen den funtsezko propietate enpiriko bat erreproduzitzeko gai, partikula browndarren multzoarekin gertatzen zen bezala. Partikula browndarrek, errealitatean, norabide batean barreiatzean, zentzu <em>hobetsi</em> bat izan dezakete. Eta eredua errealistago bilakatzeko helburuarekin, jito-indar konstante bat sartu zen. Prozedura berdina jarraituz ekonomiaren esparru honetan, beste efektu bat gehituko zaio A Ereduari, B Eredura helduz, lehenengoaren bertsio hobetua, eta errealitatetik hurbilago egongo dena.</p>
+</div>
+</div>
+<div class="section" id="irakurlearentzako-oharrak">
+<h2>Irakurlearentzako oharrak<a class="headerlink" href="#irakurlearentzako-oharrak" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Orri honen helburua Fisikako GRALerako idatzi den kodea era argian aurkeztea da.</p></li>
+<li><p>Orrialde estatikoa denez, emaitza estatikoak baino ez dira aurkeztu liburu honetan. Animazioak exekutatzeko, github-eko <em>Jupyter notebook</em> -a zuzenean exekutatzea iradokitzen da.</p></li>
+<li><p>Atal oro, hainbat azpiatalez osatuta dago. Bakoitzean, kodea ulertzeko lagungarriak izan daitezkeen azalpen laburtuak daude. Azalpen horien helburua ez da, inondik inora ere, kodean eta bere deskribapenean oinarritutako lan bat aurkeztea. Iruzkin gehienak ikaspen prozesuaren parte izan dira eta, agian, irakurleari lagun diezaioketenez, argibide gisa utzi dira.</p></li>
+<li><p><em>Notebook</em> -ak berriro exekutatu dira <em>Book</em> hau sortzeko. Prozesu estokastikoekin dihardugunez, irudi batzuk GRALean aurkeztutakoen ezberdinak izan daitezke. Gainera, erresoluzioa jaitsi zaie liburua errazago sortzeko.</p></li>
+<li><p>FORTRANen idatzi diren moduluak ezin dira era honetan publikatu. <em>Jupyter Book</em> bateko edukia <em>Jupyter Notebook</em> -ez edota <em>markdown</em> fitxategiez osatuta egon behar da. Beraz, <em>.f95</em> -en idatziriko modulua ezin da aurkeztu. Hala ere, nire github-era igo ditut.</p></li>
+</ul>
+<div class="toctree-wrapper compound">
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='right-next' id="next-link" href="Inter_IPCC.html" title="next page">Playing with interactive maps</a>
+
+        </div>
+        
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Naia Ormaza Zulueta<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
