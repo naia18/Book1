@@ -1,0 +1,8 @@
+# Book settings
+title: Playing with Geopandas
+author: Naia Ormaza Zulueta
+logo: logi.png
+
+latex:
+  latex_documents:
+    targetname: book.tex
