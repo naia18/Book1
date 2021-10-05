@@ -1,11 +1,13 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Playing with interactive maps
+# # Playing with interactive maps with IPCC 1993 data
 
 # ## 1. Introduction
 
-# In this Jupyter Book I use the pandas library to handle data and _geopandas_ which makes it easier to work with geospatial data in python. The aim is just to play a bit with different datasets in order to see the main differences amongst countries regarding several characteristics.
+# In this Jupyter Book I use the pandas library to handle data and _GeoPandas_ which makes it easier to work with geospatial data in python. The aim is just to play a bit with different datasets in order to see the main differences amongst countries regarding several characteristics.
+# 
+# The core data structure in _GeoPandas_ is the geopandas.GeoDataFrame, a subclass of pandas.DataFrame, that can store geometry columns and perform spatial operations. So, in other words, GeoDataFrame is a combination of pandas.Series, with **traditional data** (numerical, boolean, text etc.), and geopandas.GeoSeries, with **geometries** (points, polygons etc.). For more information, check [Introduction to GeoPandas](https://geopandas.org/getting_started/introduction.html).
 # 
 # **Datasets**:
 # 
@@ -17,6 +19,8 @@
 #     - Agriculture/Food.
 #     - Energy.
 #     - Biodiversity.
+#     
+# The data is divided up into several regions: Africa, Australasia, Europe, Latin America, Middle East and Arid Asia, North America, Small Island States, Temperate Asia and Tropical Asia. In order to match it with _world_ the _geopandas_' file, first I need to merge them into one single dataframe.
 
 # ## 2. Code
 
@@ -53,11 +57,12 @@ new_header = Africa.iloc[0] #grab the first row for the header
 Africa = Africa[1:] #take the data less the header row
 Africa.columns = new_header #set the header row as the df header
 
+# Do same for the rest of the regions
 Australasia = df_sheet_all[regions[1]];
 Australasia = Australasia[1:-1];
-new_header = Australasia.iloc[0] #grab the first row for the header
-Australasia = Australasia[1:] #take the data less the header row
-Australasia.columns = new_header #set the header row as the df header
+new_header = Australasia.iloc[0] 
+Australasia = Australasia[1:] 
+Australasia.columns = new_header 
 
 Europe = df_sheet_all[regions[2]];
 Europe = Europe[1:-1];
@@ -102,12 +107,15 @@ Asia_trop = Asia_trop[1:] #take the data less the header row
 Asia_trop.columns = new_header #set the header row as the df header
 
 
-# ### 2.4. Read Geopandas dataset and create map
+# ### 2.4. Read GeoPandas dataset and create map
+
+# First we concatenate all the data in _frames_.
+# 
+# This example uses GeoPandas example data 'naturalearth_lowres', alongside a custom rectangle geometry made with shapely and then turned into a GeoDataFrame.
 
 # In[4]:
 
 
-#frames = [Africa, Australasia, Europe, Latinam, Mideast, Northam, Islands, Asia_tem, Asia_trop]
 frames = [Africa, Australasia, Europe, Latinam,Mideast,Northam,Islands,Asia_tem,Asia_trop]
 result = pd.concat(frames)
 
@@ -124,6 +132,8 @@ result = result.dropna(subset=['Forest and Woodland (1000 ha) 1993'])
 my_map = folium.Map()
 
 
+# Below I have chosen to plot 'Fores and Woodland' measured in 1000 ha in 1993. However, we could include any available data in the dataset from IPCC socio-economic 1993 data. 
+
 # In[5]:
 
 
@@ -132,7 +142,7 @@ folium.Choropleth(
     geo_data=result,
     name='choropleth',
     data=result,
-    columns=['Country', 'Forest and Woodland (1000 ha) 1993'],
+    columns=['Country', 'Forest and Woodland (1000 ha) 1993'],  
     key_on='feature.properties.name',
     fill_color='OrRd',
     fill_opacity=0.7,

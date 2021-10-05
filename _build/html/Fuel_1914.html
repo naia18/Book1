@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>1. Introduction &#8212; Playing with Geopandas</title>
+    <title>Using data from fossil-fuel CO2 emissions &#8212; Playing with Geopandas</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,7 +53,7 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Playing with interactive maps" href="Inter_IPCC.html" />
+    <link rel="prev" title="Playing with interactive maps with IPCC 1993 data" href="Inter_IPCC.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -86,14 +86,14 @@
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Inter_IPCC.html">
-   Playing with interactive maps
+   Playing with interactive maps with IPCC 1993 data
   </a>
  </li>
 </ul>
 <ul class="current nav bd-sidenav">
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   1. Introduction
+   Using data from fossil-fuel CO2 emissions
   </a>
  </li>
 </ul>
@@ -179,6 +179,51 @@
         <!-- Table of contents -->
         <div class="d-none d-md-block col-md-2 bd-toc show">
             
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#introduction">
+   1. Introduction
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#code">
+   2. Code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#import-libraries">
+     2.1. Import libraries
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-data-from-csv-file">
+     2.2. Read data from CSV file
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#construct-the-arrays-of-interest">
+     2.3. Construct the arrays of interest
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-geopandas-dataset-and-create-the-map-for-year-1914">
+     2.4. Read GeoPandas dataset and create the map for year 1914
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#read-geopandas-dataset-and-create-the-map-for-year-2014">
+     2.5. Read GeoPandas dataset and create the map for year 2014
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+            </nav>
         </div>
     </div>
 </div>
@@ -187,13 +232,20 @@
         
               <div>
                 
-  <div class="section" id="introduction">
-<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="using-data-from-fossil-fuel-co2-emissions">
+<h1>Using data from fossil-fuel CO2 emissions<a class="headerlink" href="#using-data-from-fossil-fuel-co2-emissions" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>In this Jupyter Notebook we follow the same procedure as before but with data on <span class="math notranslate nohighlight">\(CO_2\)</span>. The dataset used shows the per Country <span class="math notranslate nohighlight">\(CO_2\)</span> Emissions from fossil-fuels annually since 1751 till 2014. Data comes from the Carbon Dioxide Information Analysis Center (CDIAC).</p>
 <p>In order to make a comparison I’ve taken data from 1914 and 2014.</p>
 <ul class="simple">
 <li><p>Year 1914 shows a wanting of data: a total of 46 countries, which compared to 219 countries’ data available in 2014, is rather short.</p></li>
 </ul>
+</div>
+<div class="section" id="code">
+<h2>2. Code<a class="headerlink" href="#code" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="import-libraries">
+<h3>2.1. Import libraries<a class="headerlink" href="#import-libraries" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -203,6 +255,9 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="read-data-from-csv-file">
+<h3>2.2. Read data from CSV file<a class="headerlink" href="#read-data-from-csv-file" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read csv file</span>
@@ -211,6 +266,10 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="construct-the-arrays-of-interest">
+<h3>2.3. Construct the arrays of interest<a class="headerlink" href="#construct-the-arrays-of-interest" title="Permalink to this headline">¶</a></h3>
+<p>Here we’ll take only the data available in 1914 and the last data available: 2014.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Select the data that I want</span>
@@ -224,15 +283,7 @@
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_1_good</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data/df_1.xls&#39;</span><span class="p">)</span>
 <span class="n">df_2_good</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;Data/df_2.xls&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_1_good</span> <span class="o">=</span> <span class="n">df_1_good</span><span class="p">[</span><span class="n">df_1_good</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">]</span>
-<span class="c1">#df_1_good[&#39;Total&#39;] = df_1_good[&#39;Total&#39;].astype(str)</span>
-<span class="c1">#df_1_good[&#39;Solid Fuel&#39;] = df_1_good[&#39;Solid Fuel&#39;].astype(str)</span>
+<span class="n">df_1_good</span> <span class="o">=</span> <span class="n">df_1_good</span><span class="p">[</span><span class="n">df_1_good</span><span class="p">[</span><span class="s1">&#39;Total&#39;</span><span class="p">]</span><span class="o">&gt;=</span><span class="mi">100</span><span class="p">]</span>
 </pre></div>
 </div>
 </div>
@@ -244,6 +295,9 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="read-geopandas-dataset-and-create-the-map-for-year-1914">
+<h3>2.4. Read GeoPandas dataset and create the map for year 1914<a class="headerlink" href="#read-geopandas-dataset-and-create-the-map-for-year-1914" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the geopandas dataset</span>
@@ -280,6 +334,9 @@
 </div>
 </div>
 </div>
+</div>
+<div class="section" id="read-geopandas-dataset-and-create-the-map-for-year-2014">
+<h3>2.5. Read GeoPandas dataset and create the map for year 2014<a class="headerlink" href="#read-geopandas-dataset-and-create-the-map-for-year-2014" title="Permalink to this headline">¶</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Read the geopandas dataset and add data from 2014</span>
@@ -317,6 +374,8 @@
 </div>
 </div>
 </div>
+</div>
+</div>
 
     <script type="text/x-thebe-config">
     {
@@ -343,7 +402,7 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="Inter_IPCC.html" title="previous page">Playing with interactive maps</a>
+    <a class='left-prev' id="prev-link" href="Inter_IPCC.html" title="previous page">Playing with interactive maps with IPCC 1993 data</a>
 
         </div>
         
