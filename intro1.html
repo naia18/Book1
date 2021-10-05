@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta charset="utf-8" />
-    <title>Fisikako Gradu Amaierako Lana: Prozesu estokastikoak fisikan eta ekonomian &#8212; Playing with Geopandas</title>
+    <title>Playing with Geopandas &#8212; Playing with Geopandas</title>
     
   <link href="_static/css/theme.css" rel="stylesheet" />
   <link href="_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
@@ -53,7 +53,6 @@
     <script async="async" type="text/javascript" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Playing with interactive maps" href="Inter_IPCC.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="en" />
     
@@ -84,18 +83,13 @@
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
- <li class="toctree-l1 current">
-  <a class="reference internal" href="#">
-   Fisikako Gradu Amaierako Lana: Prozesu estokastikoak fisikan eta ekonomian
-  </a>
- </li>
-</ul>
-<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Inter_IPCC.html">
    Playing with interactive maps
   </a>
  </li>
+</ul>
+<ul class="nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="Fuel_1914.html">
    1. Introduction
@@ -173,28 +167,6 @@
             <nav id="bd-toc-nav">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#edukia">
-   Edukia
-  </a>
-  <ul class="nav section-nav flex-column">
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#higidura-browndarra">
-     Higidura browndarra
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#jito-indarpeko-higidura-browndarra">
-     Jito-indarpeko higidura browndarra
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#merkatu-ereduak">
-     Merkatu-ereduak
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#irakurlearentzako-oharrak">
    Irakurlearentzako oharrak
   </a>
@@ -210,31 +182,9 @@
         
               <div>
                 
-  <div class="section" id="fisikako-gradu-amaierako-lana-prozesu-estokastikoak-fisikan-eta-ekonomian">
-<h1>Fisikako Gradu Amaierako Lana: Prozesu estokastikoak fisikan eta ekonomian<a class="headerlink" href="#fisikako-gradu-amaierako-lana-prozesu-estokastikoak-fisikan-eta-ekonomian" title="Permalink to this headline">¶</a></h1>
-<p>Orrialde honetan, Fisikako GRALerako garatutako kode guztia aurkitu daiteke.</p>
-<div class="section" id="edukia">
-<h2>Edukia<a class="headerlink" href="#edukia" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="higidura-browndarra">
-<h3>Higidura browndarra<a class="headerlink" href="#higidura-browndarra" title="Permalink to this headline">¶</a></h3>
-<p>Lehenengo atalean, independenteak diren partikula browndarren multzo bat eraikitzen da. Kasu sinpleenetik hasten gara, 2D eta 3Dko simulazio estatikoak irudikatuz. Kodea ondo idatzita dagoen ziurtatzeko, partikula-multzoak, esperimentalki, emaitza teoriko jakin batzuk betetzen dituen aztertuko dugu.</p>
-<p>Simulazioa ondo burutu dela ziurtatzean, eraiki den kasu ideal horri zenbait propietate gehituko zaizkio:</p>
-<ol class="simple">
-<li><p>Partikula ez-independenteak simulatuko dira. Beraien arteko elkarrekintza simulatzeko, Lennard-Jones-en potentziala sartu da.</p></li>
-<li><p>Horrez gain, hasieratze-funtzio bat ere gehitu da (ordutik aurrera bi partikulek ezin izango dute bolumen bera okupatu).</p></li>
-<li><p>Azkenik, mugalde baldintza periodikoak ere ezarri dira (fisikako hainbat ikasgaitan orokortasunik galdu gabe egin dugun bezala).</p></li>
-</ol>
-</div>
-<div class="section" id="jito-indarpeko-higidura-browndarra">
-<h3>Jito-indarpeko higidura browndarra<a class="headerlink" href="#jito-indarpeko-higidura-browndarra" title="Permalink to this headline">¶</a></h3>
-<p>Oraingoan, partikula browndak dauden jariakinari jito-indar bat gehitu zaio. Izan ere, errealitatean behatzen diren eta browndartzat har daitezkeen partikulek, oro har, jito-indar bat jasan dezakete (eta hortaz, zilegi da Langevin-en ekuazioetan jito-indarra ereduztatuko duen indar bat gehitzea). Behin ere, kodea ondo dagoen frogatzeko, difusio-konstantea eta Einstein-en erlazioa kalkulatzen dira.</p>
-</div>
-<div class="section" id="merkatu-ereduak">
-<h3>Merkatu-ereduak<a class="headerlink" href="#merkatu-ereduak" title="Permalink to this headline">¶</a></h3>
-<p>Atal honetan, eta Yamada <em>et al.</em> -en artikuluari jarraituz, prozesu estokastikoetan oinarritutako bi merkatu-eredu eraikiko dira. Merkatu-eredu sinpleenari A Eredua deituko zaio eta hemen <em>partaide</em> estokastikoaren ideia aurkeztuko da. Partaide hori, merkatuan parte hartzen duen edozein negoziatzaile izan daiteke: enpresa bat, banakako merkataria, negoziatzailea, gobernua, familia edo banku zentrala. Eta <em>estokastiko</em> deritzo, esparru estokastiko bat erabiliz, modu baliokide batean modelizatu daitekeelako eragile ekonomiko horietako bakoitzak ekonomian duen esku-hartzea. Hortaz, merkatu-eredua osatzen duten osagai guztiak  <em>partaide estokastikoak</em> izango dira, eta hauen arteko elkarrekintza aztertuko da.</p>
-<p>Ondoren, ikusiko da, A Eredua ez dela merkatu errealetan behatzen den funtsezko propietate enpiriko bat erreproduzitzeko gai, partikula browndarren multzoarekin gertatzen zen bezala. Partikula browndarrek, errealitatean, norabide batean barreiatzean, zentzu <em>hobetsi</em> bat izan dezakete. Eta eredua errealistago bilakatzeko helburuarekin, jito-indar konstante bat sartu zen. Prozedura berdina jarraituz ekonomiaren esparru honetan, beste efektu bat gehituko zaio A Ereduari, B Eredura helduz, lehenengoaren bertsio hobetua, eta errealitatetik hurbilago egongo dena.</p>
-</div>
-</div>
+  <div class="section" id="playing-with-geopandas">
+<h1>Playing with <em>Geopandas</em><a class="headerlink" href="#playing-with-geopandas" title="Permalink to this headline">¶</a></h1>
+<p>This page shows two</p>
 <div class="section" id="irakurlearentzako-oharrak">
 <h2>Irakurlearentzako oharrak<a class="headerlink" href="#irakurlearentzako-oharrak" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
@@ -244,8 +194,6 @@
 <li><p><em>Notebook</em> -ak berriro exekutatu dira <em>Book</em> hau sortzeko. Prozesu estokastikoekin dihardugunez, irudi batzuk GRALean aurkeztutakoen ezberdinak izan daitezke. Gainera, erresoluzioa jaitsi zaie liburua errazago sortzeko.</p></li>
 <li><p>FORTRANen idatzi diren moduluak ezin dira era honetan publikatu. <em>Jupyter Book</em> bateko edukia <em>Jupyter Notebook</em> -ez edota <em>markdown</em> fitxategiez osatuta egon behar da. Beraz, <em>.f95</em> -en idatziriko modulua ezin da aurkeztu. Hala ere, nire github-era igo ditut.</p></li>
 </ul>
-<div class="toctree-wrapper compound">
-</div>
 </div>
 </div>
 
@@ -274,7 +222,6 @@
         
         <div class='prev-next-bottom'>
             
-    <a class='right-next' id="next-link" href="Inter_IPCC.html" title="next page">Playing with interactive maps</a>
 
         </div>
         
