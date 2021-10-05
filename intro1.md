@@ -1,7 +1,7 @@
 Playing with _Geopandas_
 ============================
 
-Orrialde honetan, Fisikako GRALerako garatutako kode guztia aurkitu daiteke. 
+This page shows two 
 
 ## Irakurlearentzako oharrak
 

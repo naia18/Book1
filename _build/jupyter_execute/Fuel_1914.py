@@ -39,7 +39,7 @@ df_1_good = pd.read_excel('Data/df_1.xls')
 df_2_good = pd.read_excel('Data/df_2.xls')
 
 
-# In[49]:
+# In[5]:
 
 
 df_1_good = df_1_good[df_1_good['Total']>=100]
@@ -47,13 +47,13 @@ df_1_good = df_1_good[df_1_good['Total']>=100]
 #df_1_good['Solid Fuel'] = df_1_good['Solid Fuel'].astype(str)
 
 
-# In[50]:
+# In[6]:
 
 
 df_1_good.to_excel(r'df_1_good.xlsx')
 
 
-# In[51]:
+# In[7]:
 
 
 # Read the geopandas dataset
@@ -69,7 +69,7 @@ df_1_good = df_1_good.dropna(subset=['Solid Fuel'])
 my_map = folium.Map()
 
 
-# In[53]:
+# In[8]:
 
 
 # Add the data for first Worldmap (1914)
@@ -87,7 +87,7 @@ folium.Choropleth(
 my_map.save('co2_1914.html')
 
 
-# In[ ]:
+# In[9]:
 
 
 # Read the geopandas dataset and add data from 2014
@@ -103,7 +103,7 @@ df_2_good = world.merge(df_2_good, how="left", left_on=['name'], right_on=['Coun
 my_map = folium.Map()
 
 
-# In[ ]:
+# In[10]:
 
 
 # Add the data for SECOND worldmap (2014)
